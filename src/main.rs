@@ -294,8 +294,7 @@ fn generate_ir(tokens: Vec<TokenType>) -> Vec<IRNode> {
     let mut cells_length: usize = 30000;
     let mut cells: Vec<u8> = vec![0; cells_length];
     for token in tokens {
-        // Keep track of the most recent node to compress if needed
-        // i.e two identical operations are merged into one
+        // Compress consecutive runs of operations into one instruction
         let current = ir.last_mut();
         match token {
             TokenType::LEFT => {
