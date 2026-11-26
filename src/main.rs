@@ -119,14 +119,14 @@ fn main() {
 fn tokenise(content: String) -> Vec<TokenType> {
     let token_map = HashMap::from([
         // "Documentation as code" haha
-        ("676", TokenType::RIGHT),    // Move data pointer forwards
-        ("767", TokenType::LEFT),     // Move data pointer backwards
-        ("67", TokenType::INCREMENT), // Increment value at data pointer
-        ("76", TokenType::DECREMENT), // Increment value at data pointer
-        ("667", TokenType::OUTPUT),   // Output value at data pointer
-        ("776", TokenType::INPUT),    // Set value at data pointer to input of one character
-        ("6677", TokenType::JUMPFWD), // If value at data pointer is 0, move instruction pointer to instruction after the nearest 7766
-        ("7766", TokenType::JUMPBCK), // Move instruction pointer back to the nearest 6677 before it
+        ("676", TokenType::RIGHT),    // > Move data pointer forwards
+        ("767", TokenType::LEFT),     // < Move data pointer backwards
+        ("67", TokenType::INCREMENT), // + Increment value at data pointer
+        ("76", TokenType::DECREMENT), // - Increment value at data pointer
+        ("667", TokenType::OUTPUT),   // . Output value at data pointer
+        ("776", TokenType::INPUT),    // , Set value at data pointer to input of one character
+        ("6677", TokenType::JUMPFWD), // [ If value at data pointer is 0, move instruction pointer to instruction after the nearest 7766
+        ("7766", TokenType::JUMPBCK), // ] Move instruction pointer back to the nearest 6677 before it
     ]);
 
     let mut tokens: Vec<TokenType> = Vec::new();
